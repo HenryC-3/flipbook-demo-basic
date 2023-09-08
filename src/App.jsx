@@ -6,6 +6,7 @@ import { useRef } from "react";
 import Toolbar from "./components/Toolbar";
 import { BookPage } from "./components/BookPage";
 import styled from "styled-components";
+import backgroundImg from "./assets/background.jpg";
 
 const AppWrapper = styled.div`
     display: flex;
@@ -14,6 +15,11 @@ const AppWrapper = styled.div`
     align-items: center;
     height: 100vh;
     overflow: hidden;
+`;
+
+const StyledFlipBook = styled(HTMLFlipBook)`
+    background: url(${backgroundImg});
+    box-shadow: 10px;
 `;
 
 const PageFooter = styled.div`
@@ -44,13 +50,12 @@ function App() {
                 <></>
             )}
 
-            <HTMLFlipBook
+            <StyledFlipBook
                 width={460}
                 height={480}
                 flippingTime={flippingTime}
                 showCover={true}
-                ref={flipBookRef}
-                className="bg-[url(./assets/background.jpg)] shadow-2xl">
+                ref={flipBookRef}>
                 {pages.map((page) => {
                     return (
                         <BookPage key={page}>
@@ -70,7 +75,7 @@ function App() {
                         </BookPage>
                     );
                 })}
-            </HTMLFlipBook>
+            </StyledFlipBook>
         </AppWrapper>
     );
 }
