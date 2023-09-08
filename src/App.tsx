@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/display-name */
 import HTMLFlipBook from "react-pageflip";
 import { useState } from "react";
 import { useRef } from "react";
@@ -29,13 +27,13 @@ const PageFooter = styled.div`
 function App() {
     const [pages] = useState(Object.keys(Array.from({ length: 50 })));
     const [flippingTime] = useState(1000);
-    const flipBookRef = useRef(null);
+    const flipBookRef = useRef>(null);
     const nextButtonClick = () => {
         flipBookRef.current.pageFlip().flipNext();
     };
 
     const prevButtonClick = () => {
-        flipBookRef.current.pageFlip().flipPrev();
+        flipBookRef.current?.pageFlip().flipPrev();
     };
 
     return (
