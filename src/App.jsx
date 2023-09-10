@@ -12,10 +12,12 @@ const AppWrapper = styled.div`
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    /* background: url(./bgs/leather.jpeg); */
+    background: url(./bgs/wood.jpg);
 `;
 
 function App() {
-    const [flippingTime] = useState(1200);
+    const [flippingTime] = useState(1000);
     const flipBookRef = useRef(null);
     const nextButtonClick = () => {
         flipBookRef.current.pageFlip().flipNext();
@@ -27,6 +29,10 @@ function App() {
 
     return (
         <AppWrapper>
+            {/* <ExampleBookOne ref={flipBookRef}></ExampleBookOne> */}
+            <ExampleBookTwo
+                ref={flipBookRef}
+                flippingTime={flippingTime}></ExampleBookTwo>
             {flipBookRef ? (
                 <Toolbar
                     flipBookRef={flipBookRef}
@@ -36,11 +42,6 @@ function App() {
             ) : (
                 <></>
             )}
-
-            {/* <ExampleBookOne ref={flipBookRef}></ExampleBookOne> */}
-            <ExampleBookTwo
-                ref={flipBookRef}
-                flippingTime={flippingTime}></ExampleBookTwo>
         </AppWrapper>
     );
 }
