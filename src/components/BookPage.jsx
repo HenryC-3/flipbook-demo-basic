@@ -9,7 +9,6 @@ const PageContainer = styled.div`
     flex-direction: column;
 `;
 
-// eslint-disable-next-line react/display-name, react/prop-types
 export const BookPage = forwardRef(({ children }, ref) => {
     return <PageContainer ref={ref}>{children}</PageContainer>;
 });
